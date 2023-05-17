@@ -254,21 +254,24 @@ button {
 }
 
 .banner_section {
-    width: 100%;
-    float: left;
-    background-image: url(../images/banner-bg.png);
-    height: auto;
-    padding-bottom: 90px;
-    background-size: cover;
-}
+     width: 100%;
+     float: left;
+     background-image: url(../images/cabai5.png);
+     height: auto;
+     padding-bottom: 90px;
+     background-size: cover;
+     background-color: rgba(0, 0, 0, 0.5); /* Mengatur latar belakang dengan tingkat transparansi 50% */
+ }
 
-.best_taital{
+ .best_taital {
      width: 100%;
      float: left;
      font-size: 60px;
      color: #ffffff;
      text-align: center;
-}
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Memberikan sorotan dengan bayangan hitam dan tingkat transparansi 50% */
+ }
+ 
 
 .email_bt {
     width: 70%;
@@ -315,6 +318,7 @@ button {
     color: #ffffff;
     padding-top: 50px;
     display: flex;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .bt_main{
@@ -402,7 +406,7 @@ button {
 .footer_section {
     width: 100%;
     float: left;
-    background-color: #00aeef;
+    background-color: rgba(0, 0, 0, 0.5);
     height: auto;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -714,7 +718,7 @@ figure:hover+span {
 .services_section {
     width: 100%;
     float: left;
-    background-image: url(../images/banner-bg.png);
+    background-image: url(../images/cabai5.png);
     padding: 30px 0px 20px 0px;
     height: auto;
     background-size: 100%;
@@ -801,26 +805,33 @@ figure:hover+span {
   --input-padding-y: .75rem;
 }
 
-.login_section {
-  background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
-}
+/* .login_section {
+  background: #ff0000;
+  background: linear-gradient(to right, #e60000, #ff3333);
+} */
 
 .card-signin {
-  border: 0;
-  border-radius: 1rem;
-  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-}
-
-.card-signin .card-title {
-  margin-bottom: 2rem;
-  font-weight: 300;
-  font-size: 1.5rem;
-}
-
-.card-signin .card-body {
-  padding: 2rem;
-}
+     border: 0;
+     border-radius: 1rem;
+     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+     transition: box-shadow 0.3s ease; /* Efek transisi untuk highlight */
+   }
+   
+   .card-signin:hover {
+     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3); /* Memberikan highlight saat card dihover */
+   }
+   
+   .card-signin .card-title {
+     margin-bottom: 2rem;
+     font-weight: 300;
+     font-size: 1.5rem;
+   }
+   
+   .card-signin .card-body {
+     padding: 2rem;
+     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+   }
+   
 
 .form-signin {
   width: 100%;

@@ -1,12 +1,12 @@
 <!-- footer section start-->
 <div class="footer_section layout_padding">
 		<div class="container">
-			<h1 class="subscribr_text">Subscribe Now</h1>
-			<p class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority have </p>
+			<h1 class="subscribr_text">Konsultasikan Sekarang</h1>
+			<p class="lorem_text">Ada beberapa penyakit yang mungkin dialami oleh tumbuhan cabai anda. Konsultasikan sekarang langsung bersama pakar nya</p>
 			<div class="box_main_2">
-			    <textarea type="" class="email_bt_2" placeholder="Enter Your Email" name=""></textarea>
+			    <textarea type="" class="email_bt_2" placeholder="Masukkan Email" name=""></textarea>
 		    </div>
-		    <button class="subscribe_bt_2"><a href="#">Subscribe</a></button>
+		    <button class="subscribe_bt_2"><a href="#">Kirim</a></button>
 		</div>
 	</div>
 	<!-- footer section end-->

@@ -21,16 +21,16 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Kode Penyakit</th>
-                    <th scope="col">Nama Penyakit</th>
+                    <th scope="col">Kode Gejala</th>
+                    <th scope="col">Nama Gejala</th>
                 </tr>
             </thead>
             <tbody>
-            <?php $no = 1; foreach ($getPenyakit as $penyakit) { ?>
+            <?php $no = 1; foreach ($getGejala as $gejala) { ?>
                 <tr>
                     <td><?= $no; ?></td>
-                    <td><?= $penyakit['kode_penyakit']; ?></td>
-                    <td><?= $penyakit['nama_penyakit']; ?></td>
+                    <td><?= $gejala['kode_gejala']; ?></td>
+                    <td><?= $gejala['nama_gejala']; ?></td>
                 </tr>
             <?php $no++;
             } ?>

@@ -11,21 +11,9 @@ class Penyakit_model extends Model
 	public function getPenyakit($idPenyakit = false)
 	{
 		if ($idPenyakit === false) {
-			return $this->findAll();
-		} else {
-			return $this->getWhere(['id_penyakit' => $idPenyakit])->first();
-		}
+            return $this->findAll();
+        } else {
+            return $this->getWhere(['id_penyakit' => $idPenyakit]);
+        }
 	}
-
-	// public function getGejala()
-	// {
-	// 	$query = $this->db->table('gejala')->get();
-	// 	return $query->getResultArray();
-	// }
-
-	// public function getRule()
-	// {
-	// 	$query = $this->db->table('rule')->get();
-	// 	return $query->getResultArray();
-	// }
 }
