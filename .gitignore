@@ -125,3 +125,8 @@ nb-configuration.xml
 /phpunit*.xml
 /.phpunit.*.cache
 
+# Update
+composer.json
+composer.lock
+phpunit.xml.dist
+app/Config/Paths.php

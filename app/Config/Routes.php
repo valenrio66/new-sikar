@@ -35,6 +35,8 @@ $routes->post('login/authenticate', 'Login::authenticate');
 $routes->get('dashboard/index', 'Dashboard::index');
 $routes->get('penyakit/datapenyakit', 'Penyakit::datapenyakit');
 $routes->get('gejala/datagejala', 'Gejala::datagejala');
+$routes->get('diagnosa', 'Diagnosa::index');
+$routes->post('diagnosa/deteksipenyakit', 'Diagnosa::deteksipenyakit');
 
 /*
  * --------------------------------------------------------------------
@@ -50,5 +52,5 @@ $routes->get('gejala/datagejala', 'Gejala::datagejala');
  * needing to reload it.
  */
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
-    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
