@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2023 at 05:06 PM
+-- Generation Time: May 22, 2023 at 03:26 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `gejala` (
   `id_gejala` int(11) NOT NULL,
+  `kode_gejala` varchar(10) NOT NULL,
   `nama_gejala` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -36,8 +37,8 @@ CREATE TABLE `gejala` (
 -- Dumping data for table `gejala`
 --
 
-INSERT INTO `gejala` (`id_gejala`, `nama_gejala`) VALUES
-(1, 'Sakit Bintik');
+INSERT INTO `gejala` (`id_gejala`, `kode_gejala`, `nama_gejala`) VALUES
+(1, 'G01', 'Bintik Bintik pada Daun');
 
 -- --------------------------------------------------------
 
@@ -47,6 +48,7 @@ INSERT INTO `gejala` (`id_gejala`, `nama_gejala`) VALUES
 
 CREATE TABLE `penyakit` (
   `id_penyakit` int(11) NOT NULL,
+  `kode_penyakit` varchar(10) NOT NULL,
   `nama_penyakit` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -54,8 +56,8 @@ CREATE TABLE `penyakit` (
 -- Dumping data for table `penyakit`
 --
 
-INSERT INTO `penyakit` (`id_penyakit`, `nama_penyakit`) VALUES
-(1, 'Bintik Bintik pada Daun');
+INSERT INTO `penyakit` (`id_penyakit`, `kode_penyakit`, `nama_penyakit`) VALUES
+(1, 'P01', 'Bintik Bintik pada Daun');
 
 --
 -- Indexes for dumped tables
