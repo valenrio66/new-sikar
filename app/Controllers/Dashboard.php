@@ -10,6 +10,6 @@ class Dashboard extends BaseController
             'title' => 'Dashboard',
         ];
 
-        return view('dashboard', $data);
+        return view('template_dashboard/header') . view ('dashboard', $data) . view ('template_dashboard/footer', $data);
     }
 }
