@@ -50,7 +50,7 @@
             >
               Cancel
             </button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="<?php echo site_url('login/logout'); ?>">Logout</a>
           </div>
         </div>
       </div>
@@ -72,5 +72,8 @@
     <!-- Page level custom scripts -->
     <script src="<?= base_url('styledashboard/js/demo/chart-area-demo.js'); ?>"></script>
     <script src="<?= base_url('styledashboard/js/demo/chart-pie-demo.js'); ?>"></script>
+    <script src="<?= base_url('js/sweetalert2.min.js') ?>"></script>
+    <script src="<?= base_url('js/sweetalert2.all.min.js') ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

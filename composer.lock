@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeigniter4/CodeIgniter4.git",
-                "reference": "3595944eac90df7e499403bad8767935c41488d9"
+                "reference": "a724f92eac0f683f1de7bb44038699c0128b7f5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeigniter4/CodeIgniter4/zipball/3595944eac90df7e499403bad8767935c41488d9",
-                "reference": "3595944eac90df7e499403bad8767935c41488d9",
+                "url": "https://api.github.com/repos/codeigniter4/CodeIgniter4/zipball/a724f92eac0f683f1de7bb44038699c0128b7f5a",
+                "reference": "a724f92eac0f683f1de7bb44038699c0128b7f5a",
                 "shasum": ""
             },
             "require": {
@@ -124,7 +124,7 @@
                 "slack": "https://codeigniterchat.slack.com",
                 "issues": "https://github.com/codeigniter4/CodeIgniter4/issues"
             },
-            "time": "2023-05-21T13:33:04+00:00"
+            "time": "2023-05-25T23:12:49+00:00"
         },
         {
             "name": "laminas/laminas-escaper",

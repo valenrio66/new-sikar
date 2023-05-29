@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Middlewares\AuthMiddleware;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -21,6 +22,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'logged_in'     => AuthMiddleware::class,
+        // 'user_helper' => Helpers\user_helper::class,
     ];
 
     /**
@@ -32,6 +35,7 @@ class Filters extends BaseConfig
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
+            'logged_in' => ['except' => ['/', 'login/*', 'register/*']],
         ],
         'after' => [
             'toolbar',
@@ -60,5 +64,8 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'before' => ['logged_in'],
+        'after' => [],
+    ];
 }

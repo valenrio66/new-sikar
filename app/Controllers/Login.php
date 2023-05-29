@@ -2,30 +2,50 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+
 class Login extends BaseController
 {
     public function index()
     {
-		$data = [
-			'title' => 'Masuk | Login',
-		];
+        $data = [
+            'title' => 'Masuk | Login',
+        ];
 
-		return view('templates/header', $data) . view('login', $data) . view('templates/footer', $data);
+        return view('login/header', $data) . view('login', $data) . view('login/footer', $data);
     }
 
-    public function authenticate()
+    public function lauth()
     {
-        // Ambil data email dan password dari input form
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
+        $users = new UserModel();
+        $email = $this->request->getVar('email');
+        $password = $this->request->getVar('password');
+        $dataUser = $users->where([
+            'email' => $email,
+        ])->first();
+        if ($dataUser) {
+            if (password_verify($password, $dataUser->password)) {
+                session()->set([
+                    'email' => $dataUser->email,
+                    'nama' => $dataUser->nama,
+                    'logged_in' => TRUE
+                ]);
 
-        // Proses validasi dan otentikasi pengguna
-        if ($email === 'user@example.com' && $password === 'password') {
-            // Jika autentikasi berhasil, lakukan sesuatu (misalnya, redirect ke halaman lain)
-            return redirect()->to('dashboard/index');
+                // Masuk ke halaman login
+                return redirect()->to(base_url('dashboard/index'))->with('message', 'Berhasil Login!');
+            } else {
+                session()->setFlashdata('error', 'Email & Password Salah');
+                return redirect()->back();
+            }
         } else {
-            // Jika autentikasi gagal, tampilkan pesan error dan kembali ke halaman login
-            return redirect()->back()->with('error', 'Invalid email or password');
+            session()->setFlashdata('error', 'Invalid');
+            return redirect()->back();
         }
+    }
+
+    function logout()
+    {
+        session()->destroy();
+        return redirect()->to('login/index');
     }
 }
