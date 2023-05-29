@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2023 at 03:26 AM
+-- Generation Time: May 29, 2023 at 03:51 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,6 +43,29 @@ INSERT INTO `gejala` (`id_gejala`, `kode_gejala`, `nama_gejala`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `version` varchar(255) NOT NULL,
+  `class` varchar(255) NOT NULL,
+  `group` varchar(255) NOT NULL,
+  `namespace` varchar(255) NOT NULL,
+  `time` int(11) NOT NULL,
+  `batch` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
+(4, '2023-05-24-040604', 'App\\Database\\Migrations\\User', 'default', 'App', 1684911161, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `penyakit`
 --
 
@@ -59,6 +82,28 @@ CREATE TABLE `penyakit` (
 INSERT INTO `penyakit` (`id_penyakit`, `kode_penyakit`, `nama_penyakit`) VALUES
 (1, 'P01', 'Bintik Bintik pada Daun');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `nama` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`nama`, `email`, `password`, `created_at`, `updated_at`) VALUES
+('Richard Rionald', 'richard@gmail.com', '$2y$10$c0PbrMWLPw.bVaDuESpequCh5obdLquLnB9dufHlFzZmcrxxvnBbO', '2023-05-24 06:57:59', '2023-05-24 06:57:59'),
+('Valen Rionald', 'vrionald@gmail.com', '$2y$10$5uFtSZwhUmo41HfI.piFpuL7WnMrrNGSmpa4omQebmNTNzstkYQO6', '2023-05-24 06:53:13', '2023-05-24 06:53:13');
+
 --
 -- Indexes for dumped tables
 --
@@ -70,10 +115,22 @@ ALTER TABLE `gejala`
   ADD PRIMARY KEY (`id_gejala`);
 
 --
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `penyakit`
 --
 ALTER TABLE `penyakit`
   ADD PRIMARY KEY (`id_penyakit`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -84,6 +141,12 @@ ALTER TABLE `penyakit`
 --
 ALTER TABLE `gejala`
   MODIFY `id_gejala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `penyakit`
