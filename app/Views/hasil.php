@@ -143,7 +143,7 @@ if (session()->getFlashdata('success')) {
                                     <h2>Hasil Diagnosa</h2>
                                     <p><?php echo $hasilDeteksi; ?></p>
                                 <?php endif; ?>
-                                <a href="<?php base_url('dashboard/index') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-back fa-sm text-white-50"></i>Kembali</a>
+                                <a href="<?php echo base_url('dashboard/index') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-back fa-sm text-white-50"></i>Kembali</a>
                             </form>
                         </div>
                     </div>
