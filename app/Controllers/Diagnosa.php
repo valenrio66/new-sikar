@@ -37,24 +37,48 @@ class Diagnosa extends BaseController
 		if (!empty($gejala)) {
 			// Rules 1
 			$gejalaPilihan = count($gejala);
-			if ($gejalaPilihan == 4 && in_array('gejala1', $gejala) && in_array('gejala2', $gejala) && in_array('gejala3', $gejala) && in_array('gejala4', $gejala)) {
-				$hasilDeteksi .= ' Layu Fusarium (Fusarium Wilt)';
+			if ($gejalaPilihan == 2 && in_array('G1', $gejala) && in_array('G2', $gejala)) {
+				$hasilDeteksi .= ' Hama Tanaman';
 			}
 			// Rules 2
-			else if ($gejalaPilihan == 3 && in_array('gejala5', $gejala) && in_array('gejala6', $gejala) && in_array('gejala7', $gejala)) {
-				$hasilDeteksi .= ' Busuk Phytophthora (Phytophthora rot)';
+			else if ($gejalaPilihan == 1 && in_array('G8', $gejala)) {
+				$hasilDeteksi .= ' Layu Bakteri';
+			}
+			//aaa
+			else if ($gejalaPilihan == 1 && in_array('G1', $gejala)) {
+				$hasilDeteksi .= ' Bercak - Bercak Putih Bersudut';
+			} else if ($gejalaPilihan == 2 && in_array('G3', $gejala) && in_array('G4', $gejala)) {
+				$hasilDeteksi .= ' Tanaman Gagal Membentuk Buah';
+			} else if ($gejalaPilihan == 1 && in_array('G14', $gejala)) {
+				$hasilDeteksi .= ' Hama Tanaman';
+			} else if ($gejalaPilihan == 1 && in_array('G3', $gejala)) {
+				$hasilDeteksi .= ' Bercak - Bercak Putih Bersudut';
+			} else if ($gejalaPilihan == 1 && in_array('G5', $gejala)) {
+				$hasilDeteksi .= ' Munculnya Bercak Putih Berukuran Besar dengan Bentuk Tidak Teratur';
+			} else if ($gejalaPilihan == 1 && in_array('G13', $gejala)) {
+				$hasilDeteksi .= ' Penyakit Jamur Daun';
+			} else if ($gejalaPilihan == 1 && in_array('G6', $gejala)) {
+				$hasilDeteksi .= ' Buah Menjadi Tampak Basah dan Membusuk';
+			} else if ($gejalaPilihan == 1 && in_array('G7', $gejala)) {
+				$hasilDeteksi .= ' Penyakit Busuk Buah';
+			} else if ($gejalaPilihan == 1 && in_array('G9', $gejala)) {
+				$hasilDeteksi .= ' Bercak - Bercak Hitam pada Buah dengan Bagian Tengah Berwarna Putih';
+			} else if ($gejalaPilihan == 1 && in_array('G10', $gejala)) {
+				$hasilDeteksi .= ' Penyakit PATEK';
+			} else if ($gejalaPilihan == 1 && in_array('G10', $gejala)) {
+				$hasilDeteksi .= ' Penyakit PATEK';
 			}
 			// Rules 3
-			else if ($gejalaPilihan == 4 && in_array('gejala8', $gejala) && in_array('gejala9', $gejala) && in_array('gejala10', $gejala) && in_array('gejala11', $gejala)) {
-				$hasilDeteksi .= ' Busuk Akar Ralstonia (Ralstonia root rot)';
+			else if ($gejalaPilihan == 3 && in_array('G9', $gejala) && in_array('G10', $gejala)) {
+				$hasilDeteksi .= ' Penyakit PATEK';
 			}
 			// Rules 4
-			else if ($gejalaPilihan == 3 && in_array('gejala12', $gejala) && in_array('gejala13', $gejala) && in_array('gejala14', $gejala)) {
-				$hasilDeteksi .= ' Penyakit Hawar Daun (Leaf spot disease)';
+			else if ($gejalaPilihan == 2 && in_array('G11', $gejala) && in_array('G12', $gejala)) {
+				$hasilDeteksi .= ' Penyakit Jamur Daun';
 			}
 			// Rules 5
-			else if ($gejalaPilihan == 3 && in_array('gejala15', $gejala) && in_array('gejala16', $gejala) && in_array('gejala17', $gejala)) {
-				$hasilDeteksi .= ' Embun Tepung (Powdery mildew)';
+			else if ($gejalaPilihan == 2 && in_array('G6', $gejala) && in_array('G7', $gejala)) {
+				$hasilDeteksi .= ' Penyakit Busuk Buah';
 			} else {
 				// Tambahkan variasi respon untuk hasil yang tidak cocok dengan aturan yang ada
 				$randomResponses = [
@@ -65,6 +89,7 @@ class Diagnosa extends BaseController
 				$randomIndex = array_rand($randomResponses);
 				$hasilDeteksi .= $randomResponses[$randomIndex];
 			}
+			// Jika gejala tidak cocok dengan aturan yang ada
 		} else {
 			$hasilDeteksi .= ' Tidak ada diagnosa';
 		}

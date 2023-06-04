@@ -6,14 +6,15 @@ namespace App\Controllers;
 
 class Dashboard extends BaseController
 {
-    public function index()
-    {
-        // $model = new UserModel();
-        $data = [
-            'title' => 'Dashboard',
-            // 'getUser' => $model->getUser(),
-        ];
+	public function index()
+	{
+		// $model = new UserModel();
+		$data = [
+			'title' => 'Dashboard',
+			'nama' => session('nama'),
+			// 'getUser' => $model->getUser(),
+		];
 
-        return view('template_dashboard/header', $data) . view('dashboard') . view('template_dashboard/footer');
-    }
+		return view('template_dashboard/header', $data) . view('dashboard', $data) . view('template_dashboard/footer');
+	}
 }
