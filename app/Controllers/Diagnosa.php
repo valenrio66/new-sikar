@@ -16,7 +16,7 @@ class Diagnosa extends BaseController
 	public function deteksipenyakit()
 	{
 		// Mendapatkan gejala yang dikirim dari formulir
-		$gejala = $this->request->getPost('gejala');
+		$gejala = $this->request->getVar('gejala');
 
 		if (empty($gejala)) {
 			return view('template_dashboard/header') . view('dashboard', ['hasilDeteksi' => 'Pilih gejala terlebih dahulu']) . view('template_dashboard/footer');
@@ -31,69 +31,91 @@ class Diagnosa extends BaseController
 
 	private function prosesDeteksiPenyakit($gejala)
 	{
-		// Inisialisasi hasil deteksi
 		$hasilDeteksi = 'Tanaman Cabai Anda Mengalami:';
 
 		if (!empty($gejala)) {
-			// Rules 1
 			$gejalaPilihan = count($gejala);
-			if ($gejalaPilihan == 2 && in_array('G1', $gejala) && in_array('G2', $gejala)) {
-				$hasilDeteksi .= ' Hama Tanaman';
-			}
-			// Rules 2
-			else if ($gejalaPilihan == 1 && in_array('G8', $gejala)) {
-				$hasilDeteksi .= ' Layu Bakteri';
-			}
-			//aaa
-			else if ($gejalaPilihan == 1 && in_array('G1', $gejala)) {
-				$hasilDeteksi .= ' Bercak - Bercak Putih Bersudut';
-			} else if ($gejalaPilihan == 2 && in_array('G3', $gejala) && in_array('G4', $gejala)) {
-				$hasilDeteksi .= ' Tanaman Gagal Membentuk Buah';
-			} else if ($gejalaPilihan == 1 && in_array('G14', $gejala)) {
-				$hasilDeteksi .= ' Hama Tanaman';
-			} else if ($gejalaPilihan == 1 && in_array('G3', $gejala)) {
-				$hasilDeteksi .= ' Bercak - Bercak Putih Bersudut';
-			} else if ($gejalaPilihan == 1 && in_array('G5', $gejala)) {
-				$hasilDeteksi .= ' Munculnya Bercak Putih Berukuran Besar dengan Bentuk Tidak Teratur';
-			} else if ($gejalaPilihan == 1 && in_array('G13', $gejala)) {
-				$hasilDeteksi .= ' Penyakit Jamur Daun';
-			} else if ($gejalaPilihan == 1 && in_array('G6', $gejala)) {
-				$hasilDeteksi .= ' Buah Menjadi Tampak Basah dan Membusuk';
-			} else if ($gejalaPilihan == 1 && in_array('G7', $gejala)) {
-				$hasilDeteksi .= ' Penyakit Busuk Buah';
-			} else if ($gejalaPilihan == 1 && in_array('G9', $gejala)) {
-				$hasilDeteksi .= ' Bercak - Bercak Hitam pada Buah dengan Bagian Tengah Berwarna Putih';
-			} else if ($gejalaPilihan == 1 && in_array('G10', $gejala)) {
-				$hasilDeteksi .= ' Penyakit PATEK';
-			} else if ($gejalaPilihan == 1 && in_array('G10', $gejala)) {
-				$hasilDeteksi .= ' Penyakit PATEK';
-			}
-			// Rules 3
-			else if ($gejalaPilihan == 3 && in_array('G9', $gejala) && in_array('G10', $gejala)) {
-				$hasilDeteksi .= ' Penyakit PATEK';
-			}
-			// Rules 4
-			else if ($gejalaPilihan == 2 && in_array('G11', $gejala) && in_array('G12', $gejala)) {
-				$hasilDeteksi .= ' Penyakit Jamur Daun';
-			}
-			// Rules 5
-			else if ($gejalaPilihan == 2 && in_array('G6', $gejala) && in_array('G7', $gejala)) {
-				$hasilDeteksi .= ' Penyakit Busuk Buah';
+			if ($gejalaPilihan === 1 && $gejalaPilihan[0] === 'G1') {
+				return redirect()->to(base_url('diagnosa/diagnosaG2'));
+			} elseif ($gejalaPilihan === 1 && $gejalaPilihan[0] === 'G2') {
+				$penyakit = 'P5';
+				return view('diagnosa/hasil', ['penyakit' => $penyakit]);
+			} elseif ($gejalaPilihan === 1 && $gejalaPilihan[0] === 'G3') {
+				return redirect()->to(base_url('diagnosa/diagnosaG4'));
+			} elseif ($gejalaPilihan === 1 && $gejalaPilihan[0] === 'G4') {
+				return redirect()->to(base_url('diagnosa/diagnosaG14'));
+			} elseif ($gejalaPilihan === 1 && $gejalaPilihan[0] === 'G5') {
+				return redirect()->to(base_url('diagnosa/diagnosaG13'));
+			} elseif ($gejalaPilihan === 1 && $gejalaPilihan[0] === 'G6') {
+				return redirect()->to(base_url('diagnosa/diagnosaG7'));
+			} elseif ($gejalaPilihan === 1 && $gejalaPilihan[0] === 'G9') {
+				return redirect()->to(base_url('diagnosa/diagnosaG10'));
+			} elseif ($gejalaPilihan === 1 && $gejalaPilihan[0] === 'G8') {
+				$penyakit = 'P2';
+				return view('diagnosa/hasil', ['penyakit' => $penyakit]);
+			} elseif ($gejalaPilihan === 1 && $gejalaPilihan[0] === 'G11') {
+				return redirect()->to(base_url('diagnosa/diagnosaG12'));
 			} else {
-				// Tambahkan variasi respon untuk hasil yang tidak cocok dengan aturan yang ada
-				$randomResponses = [
-					' Tidak ada diagnosa yang tepat',
-					' Tidak dapat menentukan penyakit dengan gejala yang diberikan',
-					' Mohon maaf, tidak dapat mendeteksi penyakit berdasarkan gejala yang diberikan'
-				];
-				$randomIndex = array_rand($randomResponses);
-				$hasilDeteksi .= $randomResponses[$randomIndex];
+				return redirect()->to(base_url('diagnosa'));
 			}
-			// Jika gejala tidak cocok dengan aturan yang ada
 		} else {
 			$hasilDeteksi .= ' Tidak ada diagnosa';
 		}
 
 		return $hasilDeteksi;
+	}
+
+
+	public function diagnosaG2()
+	{
+		return view('diagnosaG2');
+	}
+	public function diagnosaG3()
+	{
+		return view('diagnosaG3');
+	}
+	public function diagnosaG4()
+	{
+		return view('diagnosaG4');
+	}
+	public function diagnosaG5()
+	{
+		return view('diagnosaG5');
+	}
+	public function diagnosaG6()
+	{
+		return view('diagnosaG6');
+	}
+	public function diagnosaG7()
+	{
+		return view('diagnosaG7');
+	}
+	public function diagnosaG8()
+	{
+		return view('diagnosaG8');
+	}
+	public function diagnosaG9()
+	{
+		return view('diagnosaG9');
+	}
+	public function diagnosaG10()
+	{
+		return view('diagnosaG10');
+	}
+	public function diagnosaG11()
+	{
+		return view('diagnosaG11');
+	}
+	public function diagnosaG12()
+	{
+		return view('diagnosaG12');
+	}
+	public function diagnosaG13()
+	{
+		return view('diagnosaG13');
+	}
+	public function diagnosa14()
+	{
+		return view('diagnosa14');
 	}
 }

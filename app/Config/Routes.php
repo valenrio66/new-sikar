@@ -40,6 +40,8 @@ $routes->get('gejala/datagejala', 'Gejala::datagejala');
 $routes->get('diagnosa/index', 'Diagnosa::index');
 $routes->post('diagnosa/deteksipenyakit', 'Diagnosa::deteksipenyakit');
 $routes->get('hasil/index', 'Hasil::index');
+$routes->get('diagnosa/diagnosaG2', 'Diagnosa::diagnosaG2');
+$routes->get('diagnosa/diagnosaG3', 'Diagnosa::diagnosaG3');
 
 /*
  * --------------------------------------------------------------------

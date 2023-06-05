@@ -140,15 +140,94 @@ if (session()->getFlashdata('success')) {
 						<div class="card-body p-5">
 							<h2 class="h4 mb-1">Pilih Gejala - Gejala Tanaman Anda</h2>
 							<form action="<?php echo site_url('diagnosa/deteksipenyakit'); ?>" method="post">
-								<li class="list-group-item rounded-0">
-									<label class="cursor-pointer font-bold d-block" for="G1">Bercak - Bercak Putih Bersudut</label>
-									<div class="d-flex justify-content-center">
-										<div class="py-0">
-											<button type="submit" name="gejala[]" value="G1" class="btn btn-primary">Ya</button>
-											<button type="submit" name="gejala[]" value="G1T" class="btn btn-primary">Tidak</button>
+								<ul class=" list-group">
+									<li class="list-group-item rounded-0">
+										<div class="custom-control custom-checkbox">
+											<label class="cursor-pointer font-bold d-block" for="G1">Bercak - Bercak Putih Bersudut</label>
+											<button type="submit" name="gejala[]" value="G1" class="btn btn-primary mt-5">Ya</button>
+											<button type="submit" name="gejala[]" value="G1T" class="btn btn-primary mt-5">Tidak</button>
 										</div>
-									</div>
-								</li>
+									</li>
+									<li class="list-group-item">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G2" id="G2" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G2">Daun Berlubang</label>
+										</div>
+									</li>
+									<li class="list-group-item">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G3" id="G3" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G3">Daun Mengeriting</label>
+										</div>
+									</li>
+									<li class="list-group-item">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G4" id="G4" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G4">Pertumbuhan Terhambat (Kerdil)</label>
+										</div>
+									</li>
+									<li class="list-group-item rounded-0">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G5" id="G5" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G5">Daun Menguning</label>
+										</div>
+									</li>
+									<li class="list-group-item rounded-0">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G6" id="G6" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G6">Muncul Bercak Coklat Kehitaman pada Daun, Buah</label>
+										</div>
+									</li>
+									<li class="list-group-item rounded-0">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G7" id="G7" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G7">Buah Menjadi Tampak Basah dan Membusuk</label>
+										</div>
+									</li>
+									<li class="list-group-item rounded-0">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G8" id="G8" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G8">Layunya Tanaman Cabe yang Baru Berkecambah</label>
+										</div>
+									</li>
+									<li class="list-group-item rounded-0">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G9" id="G9" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G9">Bercak - Bercak Kecil Coklat yang Dikelilingi Warna Kuning pada Daun</label>
+										</div>
+									</li>
+									<li class="list-group-item rounded-0">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G10" id="G10" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G10">Bercak - Bercak Hitam pada Buah dengan Bagian Tengah Berwarna Putih</label>
+										</div>
+									</li>
+									<li class="list-group-item rounded-0">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G11" id="G11" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G11">Muncul Tepung Putih pada Daun, Ranting, Bunga dan Daun</label>
+										</div>
+									</li>
+									<li class="list-group-item rounded-0">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G12" id="G12" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G12">Daun Mengulung</label>
+										</div>
+									</li>
+									<li class="list-group-item rounded-0">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G13" id="G13" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G13">Munculnya Bercak Putih Berukuran Besar dengan Bentuk Tidak Teratur</label>
+										</div>
+									</li>
+									<li class="list-group-item rounded-0">
+										<div class="custom-control custom-checkbox">
+											<input class="custom-control-input" name="gejala[]" value="G14" id="G14" type="checkbox">
+											<label class="cursor-pointer font-bold d-block custom-control-label" for="G14">Tanaman Gagal Membentuk Buah</label>
+										</div>
+									</li>
+									<!-- <button type="submit" class="btn btn-primary mt-5">Diagnosa</button> -->
+								</ul>
 							</form>
 						</div>
 					</div>
