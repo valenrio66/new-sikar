@@ -110,7 +110,7 @@ if (session()->getFlashdata('success')) {
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-black-50 small font-bold">
-                                Test
+                                Nama User
                             </span>
                             <img class="img-profile rounded-circle" src="<?= base_url('images/undraw_profile.png'); ?>" />
                         </a>

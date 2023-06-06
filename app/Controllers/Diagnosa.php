@@ -79,21 +79,61 @@ class Diagnosa extends BaseController
 			// Rules 5
 			else if ($gejalaPilihan == 2 && in_array('G6', $gejala) && in_array('G7', $gejala)) {
 				$hasilDeteksi .= ' Penyakit Busuk Buah';
-			} else {
-				// Tambahkan variasi respon untuk hasil yang tidak cocok dengan aturan yang ada
-				$randomResponses = [
-					' Tidak ada diagnosa yang tepat',
-					' Tidak dapat menentukan penyakit dengan gejala yang diberikan',
-					' Mohon maaf, tidak dapat mendeteksi penyakit berdasarkan gejala yang diberikan'
-				];
-				$randomIndex = array_rand($randomResponses);
-				$hasilDeteksi .= $randomResponses[$randomIndex];
-			}
+			} // Buat daftar penyakit dengan bobot keyakinan awal
+			$penyakit = [
+				'Penyakit Busuk Buah' => 0.2,
+				'Layu Bakteri' => 0.2,
+				'Penyakit PATEK' => 0.2,
+				'Penyakit Jamur Daun' => 0.2,
+				'Hama Tanaman' => 0.2
+			];
+
+			// Hitung total bobot
+			$totalBobot = array_sum($penyakit);
+
+			// Hitung bobot untuk penyakit yang tidak ada di rules
+			$bobotTidakCocok = 1 - $totalBobot;
+
+			// Tambahkan penyakit dengan bobot keyakinan
+			$penyakit['Tidak ada diagnosa yang tepat'] = $bobotTidakCocok;
+
+			// Ambil penyakit secara acak berdasarkan bobot keyakinan
+			$randomDiagnosis = $this->getRandomDiagnosis($penyakit);
+			$confidence = $penyakit[$randomDiagnosis] * 100;
+
+			$hasilDeteksi .= ' ' . $randomDiagnosis . ' (Kepercayaan: ' . $confidence . '%)';
 			// Jika gejala tidak cocok dengan aturan yang ada
 		} else {
 			$hasilDeteksi .= ' Tidak ada diagnosa';
 		}
 
 		return $hasilDeteksi;
+	}
+
+	private function getRandomDiagnosis($penyakit)
+	{
+		// Normalisasi bobot
+		$totalBobot = array_sum($penyakit);
+		$normalizedBobot = [];
+
+		foreach ($penyakit as $diagnosis => $bobot) {
+			$normalizedBobot[$diagnosis] = $bobot / $totalBobot;
+		}
+
+		// Pilih diagnosis secara acak berdasarkan bobot keyakinan
+		$randomNumber = mt_rand() / mt_getrandmax();
+		$cumulativeProbability = 0;
+
+		foreach ($normalizedBobot as $diagnosis => $probability) {
+			$cumulativeProbability += $probability;
+			if ($randomNumber <= $cumulativeProbability) {
+				return $diagnosis;
+			}
+		}
+
+		// Jika terjadi kesalahan, kembalikan diagnosis secara acak
+		$diagnoses = array_keys($penyakit);
+		$randomIndex = array_rand($diagnoses);
+		return $diagnoses[$randomIndex];
 	}
 }
