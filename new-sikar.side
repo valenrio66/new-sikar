@@ -1,0 +1,203 @@
+{
+  "id": "044a7345-9fa0-4390-a347-6ab9404aee47",
+  "version": "2.0",
+  "name": "new-sikar",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "77f93662-5ce9-4bb6-a87a-a801b3c980ba",
+    "name": "new-sikar",
+    "commands": [{
+      "id": "d0c065cd-3b5e-4056-a0e4-15d09176aa66",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b589e3e6-3a0d-4b0b-8ac1-af47648a07c5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "654x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5a9b93f9-61bc-4a68-adc1-f2b93b860be4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Already have an account? Login!",
+      "targets": [
+        ["linkText=Already have an account? Login!", "linkText"],
+        ["css=.text-center:nth-child(5) > .small", "css:finder"],
+        ["xpath=//a[contains(text(),'Already have an account? Login!')]", "xpath:link"],
+        ["xpath=//a[@href='http://localhost:8080/login/index']", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Already have an account? Login!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3232f5a9-c2a1-48a9-b5e7-feb30ebfe82c",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7715462-e935-48a0-ba42-5bb4a516d0da",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "vrionald@gmail.com"
+    }, {
+      "id": "9e5f8b91-9e74-438f-a5ef-a1a06f19e2c6",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "52a46985-78a0-4252-92bc-5e946c575a6d",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "valen123"
+    }, {
+      "id": "4877d763-858e-4251-8b62-857f169a5ebb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c95bfbe4-7cfa-4220-abda-db6e79679cf3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group-item:nth-child(1) .cursor-pointer",
+      "targets": [
+        ["css=.list-group-item:nth-child(1) .cursor-pointer", "css:finder"],
+        ["xpath=//div[@id='content']/div/div[2]/div/div/form/ul/li/div/label", "xpath:idRelative"],
+        ["xpath=//label", "xpath:position"],
+        ["xpath=//label[contains(.,'Bercak - Bercak Putih Bersudut')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b94c812f-1d1c-4888-9e8f-affd039fbc9e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group-item:nth-child(2) .cursor-pointer",
+      "targets": [
+        ["css=.list-group-item:nth-child(2) .cursor-pointer", "css:finder"],
+        ["xpath=//div[@id='content']/div/div[2]/div/div/form/ul/li[2]/div/label", "xpath:idRelative"],
+        ["xpath=//li[2]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Daun Berlubang')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "609666f1-fb88-4bde-bd3d-0c7e8f185b56",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-5",
+      "targets": [
+        ["css=.mt-5", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/div/div[2]/div/div/form/ul/button", "xpath:idRelative"],
+        ["xpath=//ul/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Diagnosa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9181b68e-0a71-43d6-bc83-4382f84cd538",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kembali",
+      "targets": [
+        ["linkText=Kembali", "linkText"],
+        ["css=.d-none:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Kembali')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div/div[2]/div/div/form/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/dashboard/index']", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kembali')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0364f93d-91dc-4fe8-b270-fce4d1eed0f7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.img-profile",
+      "targets": [
+        ["css=.img-profile", "css:finder"],
+        ["xpath=//img[contains(@src,'http://localhost:8080/images/undraw_profile.png')]", "xpath:img"],
+        ["xpath=//a[@id='userDropdown']/img", "xpath:idRelative"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "78244f39-7caa-4a1b-be06-96d839de3e4a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.dropdown-item", "css:finder"],
+        ["xpath=//div[@id='content']/nav/ul/li[2]/div/a", "xpath:idRelative"],
+        ["xpath=//li[2]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d5456d84-1536-496b-b603-9a382ec2d933",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.modal-footer > .btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Logout')]", "xpath:link"],
+        ["xpath=//div[@id='logoutModal']/div/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/index.php/login/logout']", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "48079a1d-13bb-413e-84bd-99a1975de591",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["77f93662-5ce9-4bb6-a87a-a801b3c980ba"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}
